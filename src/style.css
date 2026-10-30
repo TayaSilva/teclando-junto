@@ -1,0 +1,227 @@
+@import 'tailwindcss';
+
+/*
+  Paleta do TJ Teclando Juntos.
+  Os utilitários do Tailwind (bg-pri, text-ink, border-borda...) leem estas
+  variáveis, então o modo de alto contraste só precisa trocar os valores.
+*/
+@theme {
+  --font-sans: 'Atkinson Hyperlegible', Verdana, sans-serif;
+
+  --color-ink: #14213d;
+  --color-ink-2: #3e4a5e;
+  --color-fundo: #f5f7f8;
+  --color-superficie: #ffffff;
+  --color-borda: #b9c4cc;
+  --color-borda-suave: #dce3e7;
+  --color-tracejado: #8796a3;
+
+  /* Primária: azul-petróleo */
+  --color-pri: #0b5d6b;
+  --color-pri-txt: #ffffff;
+  --color-pri-ink: #0a4a55;
+  --color-pri-suave: #dcebee;
+  --color-pri-claro: #eef6f7;
+
+  /* Secundária: roxo/lilás */
+  --color-sec: #6d4aae;
+  --color-sec-forte: #a58bdd;
+  --color-sec-tecla: #cdbdf0;
+  --color-sec-suave: #efe8fa;
+  --color-sec-claro: #f7f3fd;
+  --color-sec-ink: #4b2e83;
+
+  --color-marinho: #14213d;
+}
+
+/* Modo escuro (Configurações > Tema). Mantém a identidade: petróleo + lilás. */
+:root[data-tema='escuro'] {
+  --color-ink: #e8edf2;
+  --color-ink-2: #c3ccd6;
+  --color-fundo: #0f1726;
+  --color-superficie: #17223a;
+  --color-borda: #3d4e6b;
+  --color-borda-suave: #2a3854;
+  --color-tracejado: #6f80a0;
+  --color-pri: #5cc1cf;
+  --color-pri-txt: #0b1b2b;
+  --color-pri-ink: #8fd6e0;
+  --color-pri-suave: #133447;
+  --color-pri-claro: #142a40;
+  --color-sec: #b9a2ec;
+  --color-sec-forte: #a58bdd;
+  --color-sec-tecla: #cdbdf0;
+  --color-sec-suave: #2b2449;
+  --color-sec-claro: #221d3c;
+  --color-sec-ink: #dacdf8;
+  --color-marinho: #0a1220;
+}
+
+/* O alto contraste vem depois e tem prioridade sobre o tema. */
+:root[data-contraste='alto'] {
+  --color-ink: #ffffff;
+  --color-ink-2: #ffffff;
+  --color-fundo: #000000;
+  --color-superficie: #000000;
+  --color-borda: #ffffff;
+  --color-borda-suave: #ffffff;
+  --color-tracejado: #ffffff;
+  --color-pri: #ffe14d;
+  --color-pri-txt: #000000;
+  --color-pri-ink: #ffe14d;
+  --color-pri-suave: #000000;
+  --color-pri-claro: #000000;
+  --color-sec: #ffe14d;
+  --color-sec-forte: #ffe14d;
+  --color-sec-tecla: #ffe14d;
+  --color-sec-suave: #000000;
+  --color-sec-claro: #000000;
+  --color-sec-ink: #ffffff;
+}
+
+/* Tamanho do texto (Configurações). Tudo em rem acompanha. */
+html { font-size: 16px; }
+html[data-tamanho='2'] { font-size: 19px; }
+html[data-tamanho='3'] { font-size: 26px; }
+/* Celular: o mesmo escalonamento, só que menor, para as palavras caberem na tela estreita. */
+@media (max-width: 480px) {
+  html { font-size: 14px; }
+  html[data-tamanho='2'] { font-size: 16.5px; }
+  html[data-tamanho='3'] { font-size: 22px; }
+}
+/* Tablet em pé. */
+@media (min-width: 481px) and (max-width: 820px) {
+  html { font-size: 15px; }
+  html[data-tamanho='2'] { font-size: 18px; }
+  html[data-tamanho='3'] { font-size: 25px; }
+}
+
+@layer base {
+  body {
+    background: var(--color-fundo);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, p, li, strong, label { overflow-wrap: break-word; }
+  img, svg { max-width: 100%; }
+  a { color: var(--color-pri-ink); }
+  a:hover { color: var(--color-ink); }
+  :focus-visible { outline: 4px solid var(--color-sec); outline-offset: 3px; }
+  button { cursor: pointer; }
+}
+
+@layer components {
+  .container-tj { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: clamp(14px, 4vw, 24px); }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5em;
+    padding: 8px 14px; border-radius: 10px;
+    font-weight: 700; font-size: 1rem; text-decoration: none;
+    border: 2px solid var(--color-ink); background: var(--color-superficie); color: var(--color-ink);
+  }
+  .btn:hover { background: var(--color-pri-claro); color: var(--color-ink); }
+  .btn[aria-pressed='true'] { background: var(--color-pri); color: var(--color-pri-txt); }
+  .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+  .btn-pri { background: var(--color-pri); color: var(--color-pri-txt); border-color: var(--color-pri); }
+  .btn-pri:hover { background: var(--color-pri-ink); color: var(--color-pri-txt); border-color: var(--color-pri-ink); }
+  .btn-lilas { background: var(--color-sec-forte); color: #14213d; }
+  .btn-lilas:hover { background: var(--color-sec-tecla); color: #14213d; }
+  .btn-g { font-size: 1.05rem; }
+  .btn-icone { padding: 4px; }
+
+  .card { background: var(--color-superficie); border: 2px solid var(--color-borda); border-radius: 16px; padding: 1.4rem; }
+  .card-destaque { background: var(--color-pri-suave); border: 3px solid var(--color-ink); border-radius: 18px; padding: 1.8rem; }
+  .card-tracejado { border: 2px dashed var(--color-tracejado); border-radius: 16px; padding: 1.4rem; }
+
+  .selo {
+    align-self: flex-start; display: inline-flex; align-items: center; gap: 0.3em;
+    font-weight: 700; font-size: 0.85rem; padding: 0.2em 0.85em; border-radius: 999px;
+    background: var(--color-sec-suave); border: 2px solid var(--color-sec); color: var(--color-sec-ink);
+  }
+  .sobretitulo { font-weight: 700; font-size: 0.9rem; letter-spacing: 0.06em; text-transform: uppercase; }
+
+  .entrada {
+    width: 100%; min-height: 56px; padding: 0 14px; border-radius: 10px;
+    border: 2px solid var(--color-ink); background: var(--color-superficie); color: var(--color-ink); font-weight: 400;
+  }
+  textarea.entrada { padding: 12px 14px; line-height: 1.5; }
+  .entrada[aria-invalid='true'] { border: 3px solid var(--color-sec); }
+
+  .nav-link {
+    display: inline-flex; align-items: center; gap: 0.4em; min-height: 52px; padding: 0 0.9em;
+    border-radius: 10px; font-weight: 700; text-decoration: none; color: var(--color-ink); border: 2px solid transparent;
+  }
+  .nav-link:hover { background: var(--color-pri-claro); color: var(--color-ink); }
+  .nav-link.ativo { background: var(--color-pri-suave); border-color: var(--color-ink); }
+
+  .opcao {
+    display: flex; gap: 0.8em; align-items: flex-start; cursor: pointer; padding: 0.9em 1em;
+    border-radius: 14px; background: var(--color-superficie); border: 2px solid var(--color-borda); font-weight: 400;
+  }
+  .opcao.sel { background: var(--color-pri-claro); border: 3px solid var(--color-pri); }
+  .opcao input { width: 28px; height: 28px; flex: none; margin: 0.1em 0 0; accent-color: var(--color-pri); }
+
+  .retorno { display: flex; gap: 12px; align-items: flex-start; padding: 16px 20px; border-radius: 14px; }
+  .retorno-ok { background: var(--color-pri-suave); border: 3px solid var(--color-pri); }
+  .retorno-erro { background: var(--color-sec-claro); border: 3px solid var(--color-sec); }
+  .retorno-neutro { background: var(--color-superficie); border: 2px dashed var(--color-tracejado); }
+
+  .barra { height: 16px; border-radius: 8px; background: var(--color-borda-suave); border: 2px solid var(--color-ink); overflow: hidden; }
+  .barra > span { display: block; height: 100%; background: var(--color-pri); }
+
+  .tecla-chip {
+    min-width: 44px; min-height: 44px; padding: 0 10px; border-radius: 8px;
+    display: inline-grid; place-items: center; font-weight: 700; font-size: 0.85rem;
+    border: 2px solid var(--color-ink); border-bottom-width: 5px; background: var(--color-superficie);
+  }
+  .numero {
+    flex: none; width: 2.4em; height: 2.4em; border-radius: 10px; display: grid; place-items: center;
+    font-weight: 700; border: 2px solid var(--color-ink); background: var(--color-pri-suave);
+  }
+
+  .pular { position: absolute; left: 16px; top: -100px; z-index: 100; background: var(--color-superficie); padding: 12px 16px; border: 2px solid var(--color-ink); border-radius: 10px; }
+  .pular:focus { top: 16px; }
+
+  .modelo { display: block; padding: 12px 18px; border-radius: 12px; background: var(--color-sec-claro); border: 2px solid var(--color-sec-forte); font-weight: 700; white-space: pre-line; overflow-wrap: anywhere; font-size: 1.3rem; }
+  .modelo.grande { font-size: 2.2rem; letter-spacing: 0.08em; }
+  .cursor-visual { display: inline-block; width: 4px; height: 1.1em; background: var(--color-sec); margin: 0 3px; vertical-align: middle; }
+}
+
+/* ===== Movimento ===== */
+
+/* Ilustração da página inicial: o mouse mexe e a setinha anda junto na tela. */
+@keyframes tj-cursor { 0% { transform: translate(110px, -70px); } 35% { transform: translate(40px, -90px); } 65%, 80% { transform: translate(0, 0); } 100% { transform: translate(110px, -70px); } }
+@keyframes tj-mouse { 0% { transform: translate(22px, -14px); } 35% { transform: translate(8px, -18px); } 65%, 80% { transform: translate(0, 0); } 100% { transform: translate(22px, -14px); } }
+@keyframes tj-clique { 0%, 64% { opacity: 0; } 67%, 73% { opacity: 1; } 78%, 100% { opacity: 0; } }
+@keyframes tj-onda { 0%, 64% { opacity: 0; transform: scale(0.2); } 67% { opacity: 0.9; transform: scale(0.4); } 80%, 100% { opacity: 0; transform: scale(1.4); } }
+.tj-cursor { animation: tj-cursor 6s ease-in-out infinite; }
+.tj-mouse { animation: tj-mouse 6s ease-in-out infinite; }
+.tj-clique { opacity: 0; animation: tj-clique 6s linear infinite; }
+.tj-onda { opacity: 0; transform-box: fill-box; transform-origin: center; animation: tj-onda 6s ease-out infinite; }
+
+/* Cartões: hover simples e entrada suave ao rolar a página. */
+.tj-card { transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease; }
+.tj-card:hover { transform: translateY(-4px); box-shadow: 0 6px 0 var(--color-ink); border-color: var(--color-pri); }
+.tj-card-extra:hover { border-style: solid; border-color: var(--color-sec); box-shadow: 0 6px 0 var(--color-sec); }
+
+@keyframes tj-surge { from { opacity: 0; translate: 0 36px; } to { opacity: 1; translate: 0 0; } }
+/* Barra fina no topo que enche conforme a página é rolada. */
+@keyframes tj-progresso { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .tj-surge, .card, .card-destaque, .card-tracejado { animation: tj-surge linear both; animation-timeline: view(); animation-range: entry 0% entry 60%; }
+    body::before {
+      content: ''; position: fixed; inset: 0 0 auto 0; height: 4px; z-index: 200; pointer-events: none;
+      background: var(--color-pri); transform-origin: left; transform: scaleX(0);
+      animation: tj-progresso linear both; animation-timeline: scroll(root);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .tj-card:hover { transform: none; }
+}
