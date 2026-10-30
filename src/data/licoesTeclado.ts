@@ -57,10 +57,10 @@ export const LICOES: Licao[] = [
     a: [
       { t: 'Complete o nome', k: 'completar', i: 'Que letra está faltando? Aperte a tecla dela e depois Conferir.', ci: true, sa: true, itens: [
         { mostra: 'B_LA', r: 'O', palavra: 'BOLA' }, { mostra: 'C_SA', r: 'A', palavra: 'CASA' },
-        { mostra: 'R_DIO', r: 'A', palavra: 'RÁDIO', nota: 'Pode usar o A sem acento. Os acentos vêm mais adiante.' },
-        { mostra: 'F_STA', r: 'E', palavra: 'FESTA' }, { mostra: 'D_NÇA', r: 'A', palavra: 'DANÇA' }] },
+        { mostra: 'M_SA', r: 'E', palavra: 'MESA' },
+        { mostra: 'F_STA', r: 'E', palavra: 'FESTA' }, { mostra: 'L_VRO', r: 'I', palavra: 'LIVRO' }] },
       { t: 'Objetos de outros tempos', k: 'foto', i: 'Olhe a foto e digite o nome do objeto. A palavra aparece para ajudar.', ci: true, sa: true, itens: [
-        { foto: 'vitrola', r: 'VITROLA' }, { foto: 'rádio antigo', r: 'RÁDIO' }, { foto: 'máquina de escrever', r: 'MÁQUINA' }, { foto: 'telefone de disco', r: 'TELEFONE' }] },
+        { foto: 'vitrola', r: 'VITROLA' }, { foto: 'ferro de passar antigo', r: 'FERRO' }, { foto: 'bule antigo', r: 'BULE' }, { foto: 'telefone de disco', r: 'TELEFONE' }] },
     ],
   },
   {
@@ -71,9 +71,9 @@ export const LICOES: Licao[] = [
     a: [
       { t: 'Números na tela', k: 'digitar', i: 'Digite o número que aparece.', itens: dig(['7', '15', '25', '100', '1975', '1988', '2000']) },
       { t: 'Uma viagem no tempo', k: 'ano', i: 'Digite o ano no espaço abaixo.', itens: [
-        { foto: 'televisão antiga', pergunta: 'Vamos imaginar que estamos em 1978. Digite esse ano no espaço abaixo.', r: '1978' },
-        { foto: 'televisão antiga', pergunta: 'Agora a viagem nos leva para 1985. Digite esse ano.', r: '1985' },
-        { foto: 'televisão antiga', pergunta: 'Mais uma parada: 1994. Digite esse ano.', r: '1994' }] },
+        { foto: 'televisor antigo', pergunta: 'Vamos imaginar que estamos em 1978. Digite esse ano no espaço abaixo.', r: '1978' },
+        { foto: 'televisor antigo', pergunta: 'Agora a viagem nos leva para 1985. Digite esse ano.', r: '1985' },
+        { foto: 'televisor antigo', pergunta: 'Mais uma parada: 1994. Digite esse ano.', r: '1994' }] },
       { t: 'Lembrança especial', k: 'livre', i: 'Escreva qualquer ano. Não vamos conferir se está certo nem guardar essa informação.', itens: [
         { pergunta: 'Em que ano aconteceu uma lembrança especial da sua vida?' }] },
     ],
@@ -84,10 +84,10 @@ export const LICOES: Licao[] = [
     teclas: ['Espaço', 'Enter'],
     fim: 'Agora suas palavras têm espaço para respirar!',
     a: [
-      { t: 'Separe a piada', k: 'separar', i: 'Escreva a frase separando as palavras com a barra de espaço, a tecla comprida embaixo das letras.', ci: true, sa: true, itens: [{ mostra: 'OCAFÉESFRIOU', r: 'O CAFÉ ESFRIOU' }] },
-      { t: 'Bilhete divertido', k: 'digitar', i: 'Copie o bilhete com os espaços entre as palavras.', ci: true, sa: true, itens: [{ r: 'FUI COMPRAR PÃO E VOLTEI COM BOLO' }] },
+      { t: 'Separe a frase', k: 'separar', i: 'Escreva a frase separando as palavras com a barra de espaço, a tecla comprida embaixo das letras.', ci: true, sa: true, itens: [{ mostra: 'OBOLOESFRIOU', r: 'O BOLO ESFRIOU' }] },
+      { t: 'Bilhete divertido', k: 'digitar', i: 'Copie o bilhete com os espaços entre as palavras.', ci: true, sa: true, itens: [{ r: 'FUI COMPRAR LEITE E VOLTEI COM BOLO' }] },
       { t: 'Aprendendo Enter', k: 'info', p: ['A tecla Enter pode começar uma nova linha enquanto escrevemos um texto.', 'Ela é a tecla grande do lado direito das letras.'], teclas: ['Enter'] },
-      { t: 'Lista de compras', k: 'enter', i: 'Escreva “Lista de compras:”, aperte Enter e escreva “Pão, leite e café.”', sa: true, itens: [{ r: 'Lista de compras:\nPão, leite e café.' }] },
+      { t: 'Lista de compras', k: 'enter', i: 'Escreva “LISTA DE COMPRAS”, aperte Enter e escreva “LEITE ARROZ E FEIJAO”.', ci: true, sa: true, itens: [{ r: 'LISTA DE COMPRAS\nLEITE ARROZ E FEIJAO' }] },
     ],
   },
   {
@@ -101,9 +101,9 @@ export const LICOES: Licao[] = [
         ex: [{ antes: 'CASS', depois: 'A', leg: 'Com o cursor aqui, Backspace apaga o S da esquerda e fica CASA.' }, { antes: 'CAS', depois: 'SA', leg: 'Com o cursor aqui, Delete apaga o S da direita e fica CASA.' }],
         teclas: ['Backspace', 'Delete'] },
       { t: 'Letra sobrando', k: 'corrigir', i: 'Clique logo depois da letra que sobra e aperte Backspace. Depois, Conferir.', itens: [
-        { mostra: 'CASSA', ini: 'CASSA', r: 'CASA' }, { mostra: 'BOLLO', ini: 'BOLLO', r: 'BOLO' }, { mostra: 'CAFÉÉ', ini: 'CAFÉÉ', r: 'CAFÉ' }, { mostra: 'VOVÓÓ', ini: 'VOVÓÓ', r: 'VOVÓ' }] },
+        { mostra: 'CASSA', ini: 'CASSA', r: 'CASA' }, { mostra: 'BOLLO', ini: 'BOLLO', r: 'BOLO' }, { mostra: 'GATTO', ini: 'GATTO', r: 'GATO' }, { mostra: 'LIVVRO', ini: 'LIVVRO', r: 'LIVRO' }] },
       { t: 'Usando Delete', k: 'delete', i: 'O cursor já está antes da letra que sobra. Aperte Delete para retirar a letra que está sobrando.', itens: [
-        { mostra: 'BOLOO DE FUBÁ', ini: 'BOLOO DE FUBÁ', cur: 4, r: 'BOLO DE FUBÁ' }] },
+        { mostra: 'BOLOO DE MILHO', ini: 'BOLOO DE MILHO', cur: 4, r: 'BOLO DE MILHO' }] },
     ],
   },
   {
@@ -112,9 +112,9 @@ export const LICOES: Licao[] = [
     teclas: ['Shift', 'CapsLock'],
     fim: 'Você já sabe quando usar letras grandes e pequenas!',
     a: [
-      { t: 'Nomes conhecidos', k: 'digitar', i: 'Segure Shift e aperte a primeira letra. Solte o Shift e escreva o resto.', sa: true, itens: dig(['Maria', 'Antônio', 'Helena', 'José', 'Teresa']) },
-      { t: 'Manchete de jornal', k: 'digitar', i: 'Imagine que você vai escrever uma manchete bem chamativa! Ligue o Caps Lock, escreva e desligue no final. Para o “!”, segure Shift e aperte 1.', sa: true, itens: dig(['ÚLTIMAS NOTÍCIAS!']) },
-      { t: 'Plaquinhas engraçadas', k: 'digitar', i: 'Agora, duas plaquinhas. Tudo em letras grandes!', sa: true, itens: dig(['NÃO MEXA NO MEU CAFÉ!', 'PROIBIDO ROUBAR MEU BOLO!']) },
+      { t: 'Nomes conhecidos', k: 'digitar', i: 'Segure Shift e aperte a primeira letra. Solte o Shift e escreva o resto.', sa: true, itens: dig(['Maria', 'Pedro', 'Helena', 'Carlos', 'Teresa']) },
+      { t: 'Manchete de jornal', k: 'digitar', i: 'Imagine que você vai escrever uma manchete bem chamativa! Ligue o Caps Lock, escreva e desligue no final.', sa: true, itens: dig(['GRANDE FESTA NA PRACA']) },
+      { t: 'Plaquinhas engraçadas', k: 'digitar', i: 'Agora, duas plaquinhas. Tudo em letras grandes!', sa: true, itens: dig(['NAO MEXA NO MEU BOLO', 'CUIDADO COM O GATO']) },
     ],
   },
   {
