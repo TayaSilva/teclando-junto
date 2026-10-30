@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
+import { RouterLink } from 'vue-router';
 import Icone from '@/components/Icone.vue';
 import { tira } from '@/lib/texto';
 
@@ -73,7 +74,7 @@ const filtradas = computed(() => {
         <h2 id="mais-t" class="text-[1.4rem] font-bold">Ainda com dúvida?</h2>
         <p>Tudo bem pedir ajuda a um familiar ou amigo para os primeiros passos. Se preferir, escreva para nós.</p>
       </div>
-      <a href="mailto:contato@exemplo.com" class="btn btn-pri btn-g"><Icone nome="email" /> Escrever para o TJ Teclando Juntos</a>
+      <RouterLink to="/contato" class="btn btn-pri btn-g"><Icone nome="mensagem" /> Falar com a responsável</RouterLink>
     </section>
   </div>
 </template>

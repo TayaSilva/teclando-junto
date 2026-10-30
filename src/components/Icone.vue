@@ -28,6 +28,8 @@ const CAMINHOS: Record<string, string> = {
   cadeado: '<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
   lupa: '<circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/>',
   email: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6 8.5 7 8.5-7"/>',
+  mensagem: '<path d="M4 5h16v11H8l-4 4z"/><path d="M8 9h8M8 12h5"/>',
+  telefone: '<path d="M6.5 3.5 9 3l2 5-2.5 1.5a14 14 0 0 0 6.5 6.5l1.5-2.5 5 2-.5 2.5c-.3 1.5-1.7 2.5-3.2 2.3C10 19.2 4.8 14 3.7 6.7 3.5 5.2 5 3.8 6.5 3.5z"/>',
   lampada: '<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/>',
   copiar: '<rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/>',
   texto: '<path d="M4 7V4h16v3M9 20h6M12 4v16"/>',

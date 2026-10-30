@@ -6,6 +6,7 @@ import Simbolo from './Simbolo.vue';
 import ConfigModal from './ConfigModal.vue';
 import { usePreferencias } from '@/composables/usePreferencias';
 import { useConta } from '@/composables/useConta';
+import { ACESSO_DISPONIVEL } from '@/config/funcionalidades';
 
 const { conta, sair } = useConta();
 
@@ -44,8 +45,7 @@ const LINKS = [
         </span>
       </RouterLink>
       <nav aria-label="Principal" class="flex items-center gap-2">
-        <RouterLink v-if="!conta.logado" to="/entrar" class="btn">Entrar</RouterLink>
-        <button v-else type="button" class="btn" @click="sair">Sair</button>
+        <button v-if="ACESSO_DISPONIVEL && conta.logado" type="button" class="btn" @click="sair">Sair</button>
 
         <div ref="caixaMenu" class="relative">
           <button id="botao-menu" type="button" class="btn btn-pri" aria-haspopup="true" aria-controls="menu-principal" :aria-expanded="menu" @click="menu = !menu">

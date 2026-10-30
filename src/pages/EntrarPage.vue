@@ -5,6 +5,7 @@ import Icone from '@/components/Icone.vue';
 import CampoSenha from '@/components/CampoSenha.vue';
 import LayoutAcesso from '@/components/LayoutAcesso.vue';
 import { emailValido, useConta } from '@/composables/useConta';
+import { ACESSO_DISPONIVEL } from '@/config/funcionalidades';
 
 const { entrar } = useConta();
 const email = ref('');
@@ -71,7 +72,7 @@ async function enviar() {
 
       <p class="flex flex-wrap items-center gap-x-3 gap-y-2 border-t-2 border-borda-suave pt-4">
         <span>Ainda não tem acesso?</span>
-        <RouterLink to="/cadastro" class="py-1.5 font-bold">Criar meu acesso</RouterLink>
+        <RouterLink v-if="ACESSO_DISPONIVEL" to="/cadastro" class="py-1.5 font-bold">Criar meu acesso</RouterLink>
       </p>
     </template>
 

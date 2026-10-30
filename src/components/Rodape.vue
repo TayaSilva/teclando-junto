@@ -13,11 +13,11 @@ import Simbolo from './Simbolo.vue';
         <span class="text-[0.85rem] text-[#D3DAE3]">© {{ new Date().getFullYear() }} TJ Teclando Juntos</span>
       </div>
       <nav aria-label="Institucional" class="flex flex-wrap gap-x-7 gap-y-2 font-bold">
-        <a href="#sobre" class="py-2.5 text-white">Sobre o projeto</a>
-        <a href="#privacidade" class="py-2.5 text-white">Privacidade</a>
-        <a href="#termos" class="py-2.5 text-white">Termos de uso</a>
+        <RouterLink to="/sobre" class="py-2.5 text-white">Sobre o projeto</RouterLink>
+        <RouterLink to="/privacidade" class="py-2.5 text-white">Privacidade</RouterLink>
+        <RouterLink to="/termos" class="py-2.5 text-white">Termos de uso</RouterLink>
         <RouterLink to="/ajuda" class="py-2.5 text-white">Ajuda</RouterLink>
-        <a href="#contato" class="py-2.5 text-white">Contato</a>
+        <RouterLink to="/contato" class="py-2.5 text-white">Contato</RouterLink>
       </nav>
     </div>
   </footer>

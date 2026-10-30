@@ -6,6 +6,7 @@ import CampoSenha from '@/components/CampoSenha.vue';
 import LayoutAcesso from '@/components/LayoutAcesso.vue';
 import { emailValido, regrasSenha, useConta } from '@/composables/useConta';
 import { useProgresso } from '@/composables/useProgresso';
+import { ACESSO_DISPONIVEL } from '@/config/funcionalidades';
 
 const { cadastrar, primeiroNome } = useConta();
 const progresso = useProgresso();
@@ -93,7 +94,7 @@ async function criar() {
 
       <p class="flex flex-wrap items-center gap-x-3 gap-y-2 border-t-2 border-borda-suave pt-4">
         <span>Já tem acesso?</span>
-        <RouterLink to="/entrar" class="py-1.5 font-bold">Entrar</RouterLink>
+        <RouterLink v-if="ACESSO_DISPONIVEL" to="/entrar" class="py-1.5 font-bold">Entrar</RouterLink>
       </p>
     </template>
 

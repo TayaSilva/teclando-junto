@@ -6,10 +6,8 @@ import Simbolo from '@/components/Simbolo.vue';
 import ConfigModal from '@/components/ConfigModal.vue';
 import { TRILHAS, EXTRAS } from '@/data/trilhas';
 import { usePreferencias } from '@/composables/usePreferencias';
-import { useConta } from '@/composables/useConta';
 
 const { prefs, temaEscuro } = usePreferencias();
-const { conta } = useConta();
 const config = ref(false);
 
 const PASSOS = [
@@ -35,8 +33,6 @@ const BENEFICIOS = [
         <span class="flex flex-col text-[1.25rem] leading-[0.95] font-bold"><span>Teclando</span><span class="text-pri">Juntos</span></span>
       </RouterLink>
       <div class="flex flex-wrap items-center gap-2.5">
-        <RouterLink v-if="!conta.logado" to="/entrar" class="btn">Entrar</RouterLink>
-        <RouterLink v-else to="/painel" class="btn">Meu painel</RouterLink>
         <button type="button" class="btn btn-pri btn-icone" aria-label="Configurações" title="Configurações" @click="config = true">
           <Icone nome="engrenagem" :tamanho="26" />
         </button>
@@ -118,17 +114,16 @@ const BENEFICIOS = [
     </ol>
 
     <div class="flex flex-col gap-4 pt-6">
-      <span class="selo">Depois das 8 trilhas</span>
+      <span class="selo">Em breve</span>
       <h3 class="text-[1.6rem] font-bold">Módulos extras para o dia a dia</h3>
-      <p class="max-w-[46ch] text-[1.05rem]">Para quem quer ir além. As 8 trilhas básicas continuam sem custo; os módulos extras são pagos.</p>
+      <p class="max-w-[46ch] text-[1.05rem]">Estamos preparando novos módulos para ajudar você a usar a internet no dia a dia. As 8 trilhas básicas continuam sem custo.</p>
       <ul class="grid list-none gap-4 p-0 [grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr))]">
         <li v-for="e in EXTRAS" :key="e.n" class="tj-card tj-card-extra tj-surge flex flex-col gap-1.5 rounded-[14px] border-2 border-dashed border-sec bg-sec-claro p-5">
-          <span class="font-bold text-sec-ink">Módulo {{ e.n }} · Extra</span>
+          <span class="font-bold text-sec-ink">Módulo {{ e.n }} · Em breve</span>
           <strong class="text-[1.05rem]">{{ e.titulo }}</strong>
           <span>{{ e.resumo }}</span>
         </li>
       </ul>
-      <RouterLink to="/extras" class="btn self-start">Conhecer os módulos extras</RouterLink>
     </div>
 
     <div class="card-destaque flex flex-wrap items-center justify-between gap-x-6 gap-y-4">

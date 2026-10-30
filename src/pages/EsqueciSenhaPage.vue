@@ -4,6 +4,7 @@ import { RouterLink } from 'vue-router';
 import Icone from '@/components/Icone.vue';
 import LayoutAcesso from '@/components/LayoutAcesso.vue';
 import { emailValido, useConta } from '@/composables/useConta';
+import { ACESSO_DISPONIVEL } from '@/config/funcionalidades';
 
 const { pedirNovaSenha } = useConta();
 const email = ref('');
@@ -47,7 +48,7 @@ async function reenviar() {
       </form>
       <p class="flex flex-wrap items-center gap-x-3 gap-y-2 border-t-2 border-borda-suave pt-4">
         <span>Lembrou a senha?</span>
-        <RouterLink to="/entrar" class="py-1.5 font-bold">Entrar</RouterLink>
+        <RouterLink v-if="ACESSO_DISPONIVEL" to="/entrar" class="py-1.5 font-bold">Entrar</RouterLink>
       </p>
     </template>
 
@@ -70,7 +71,7 @@ async function reenviar() {
         <button type="button" class="btn" @click="reenviar">{{ reenviado ? 'Mandamos de novo' : 'Mandar de novo' }}</button>
         <button type="button" class="btn" @click="enviou = false">Usar outro e-mail</button>
       </div>
-      <RouterLink to="/entrar" class="btn btn-pri btn-g">Voltar para Entrar</RouterLink>
+      <RouterLink v-if="ACESSO_DISPONIVEL" to="/entrar" class="btn btn-pri btn-g">Voltar para Entrar</RouterLink>
     </div>
 
     <template #lado>

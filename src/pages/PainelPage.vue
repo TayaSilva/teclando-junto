@@ -3,11 +3,12 @@ import { computed, ref } from 'vue';
 import { RouterLink } from 'vue-router';
 import Icone from '@/components/Icone.vue';
 import ListaTrilhas from '@/components/ListaTrilhas.vue';
-import { EXTRAS, PRECO_MODULO, TOTAL_LICOES, TRILHAS, reais } from '@/data/trilhas';
+import { EXTRAS, TOTAL_LICOES, TRILHAS } from '@/data/trilhas';
 import { PLANO } from '@/data/cursos';
 import { useProgresso } from '@/composables/useProgresso';
 import { usePreferencias } from '@/composables/usePreferencias';
 import { useConta } from '@/composables/useConta';
+import { ACESSO_DISPONIVEL } from '@/config/funcionalidades';
 
 const progresso = useProgresso();
 const { falar } = usePreferencias();
@@ -15,7 +16,7 @@ const total = progresso.totalConcluidas;
 const extrasAbertos = ref(false);
 
 const { conta, primeiroNome } = useConta();
-const mostrarConvite = computed(() => total.value >= 3 && !progresso.dados.conviteDispensado && !conta.logado);
+const mostrarConvite = computed(() => ACESSO_DISPONIVEL && total.value >= 3 && !progresso.dados.conviteDispensado && !conta.logado);
 
 const proxima = computed(() => {
   const item = PLANO.find((p) => !progresso.foiConcluida(p.prog)) ?? PLANO[0];
@@ -97,21 +98,21 @@ const dataUltima = computed(() => (ultima.value ? new Date(ultima.value.data).to
       <h2 id="extras-t" class="m-0">
         <button type="button" class="flex w-full flex-wrap items-center justify-between gap-x-4 gap-y-1 bg-transparent p-0 text-left" aria-controls="extras-lista" :aria-expanded="extrasAbertos" @click="extrasAbertos = !extrasAbertos">
           <span class="flex flex-col items-start gap-1">
-            <span class="selo">Depois da Trilha 8</span>
+            <span class="selo">Em breve</span>
             <span class="text-[1.6rem] font-bold">Módulos extras</span>
-            <span class="text-[1rem] font-normal">Para usar a internet no dia a dia com confiança. Estes módulos são pagos.</span>
+            <span class="text-[1rem] font-normal">Estamos preparando estes módulos para o dia a dia.</span>
           </span>
-          <span class="btn btn-pri" aria-hidden="true">{{ extrasAbertos ? 'Fechar' : 'Ver opções' }} <Icone nome="baixo" :tamanho="22" :traco="2.6" :class="extrasAbertos ? 'rotate-180' : ''" /></span>
+          <span class="btn btn-pri" aria-hidden="true">{{ extrasAbertos ? 'Fechar' : 'Ver módulos' }} <Icone nome="baixo" :tamanho="22" :traco="2.6" :class="extrasAbertos ? 'rotate-180' : ''" /></span>
         </button>
       </h2>
       <div v-if="extrasAbertos" id="extras-lista" class="flex flex-col gap-4">
         <ul class="grid list-none gap-3 p-0 [grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr))]">
           <li v-for="e in EXTRAS" :key="e.n" class="flex items-center gap-3 rounded-xl border-2 border-borda bg-superficie px-4 py-3">
             <span aria-hidden="true" class="numero border-sec bg-sec-suave text-sec-ink">{{ e.n }}</span>
-            <span class="flex min-w-0 flex-col"><strong>{{ e.titulo }}</strong><span class="text-[0.9rem]">Extra pago · {{ reais(PRECO_MODULO) }}</span></span>
+            <span class="flex min-w-0 flex-col"><strong>{{ e.titulo }}</strong><span class="text-[0.9rem]">Em breve</span></span>
           </li>
         </ul>
-        <RouterLink to="/extras" class="btn btn-pri btn-g self-start max-sm:w-full">Ver módulos extras</RouterLink>
+        <span class="selo self-start">Disponíveis em breve</span>
       </div>
     </section>
   </div>
