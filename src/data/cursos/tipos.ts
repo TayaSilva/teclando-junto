@@ -37,6 +37,7 @@ export type Atividade =
   | { k: 'digitar'; instrucao: string; itens: ItemDigitar[]; ignorarCaixa?: boolean; livre?: boolean; opcional?: boolean }
   | { k: 'ponteiro' } | { k: 'clique' } | { k: 'cliqueduplo' } | { k: 'arrastar' } | { k: 'rolagem' }
   | { k: 'mensagem' }
+  | { k: 'jogoLetras'; instrucao: string; rodadas: number }
   | { k: 'sim'; sim: 'computador' | 'desktop' | 'janelas' | 'pasta' | 'salvar' | 'lixeira'
       | 'url' | 'pesquisa' | 'link' | 'abas' | 'email-escrever' | 'email-anexo' | 'videochamada' | 'email-responder' };
 

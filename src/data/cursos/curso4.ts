@@ -56,6 +56,15 @@ export const CURSO4: LicaoGeral[] = [
       { img: 'mensagem-carinho', texto: ['Imagine que você deseja mandar uma mensagem carinhosa para alguém.'] },
     ],
     atividades: [{ k: 'mensagem' }],
+    conclusao: 'Muito bem! Você já sabe escrever uma mensagem.',
+  },
+  {
+    id: '4.7', curso: 4, titulo: 'Jogo das letras',
+    telas: [
+      { img: 'jogo-letras', texto: ['Que tal um joguinho para treinar?', 'Uma letra vai aparecer na tela e você deve apertar a mesma letra no teclado. Um cronômetro mostra quanto tempo você leva.'] },
+      { img: 'jogo-erro', texto: ['Se apertar a tecla errada, não tem problema: a letra continua na tela até você acertar.', 'Não precisa ter pressa. Com o tempo, você fica cada vez mais rápido!'] },
+    ],
+    atividades: [{ k: 'jogoLetras', instrucao: 'Aperte no teclado a letra que aparece na tela.', rodadas: 10 }],
     conclusao: 'Parabéns! Você concluiu o curso de digitação. Agora consegue escrever palavras, frases e mensagens no computador!',
   },
 ];

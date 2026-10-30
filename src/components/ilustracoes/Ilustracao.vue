@@ -66,6 +66,8 @@ const I: Record<string, { e: string; t: string }> = {
   'corrigir-cursor': { e: '⌫ I ⌦', t: 'Clicar no lugar e apagar ou acrescentar letras' },
   mensagem: { e: '💬✍️', t: 'Escrever uma mensagem' },
   'mensagem-carinho': { e: '💌🙂', t: 'Uma mensagem carinhosa para alguém' },
+  'jogo-letras': { e: '⌨️⏱️', t: 'Jogo das letras com cronômetro' },
+  'jogo-erro': { e: 'A ➡️ A', t: 'Se errar, a letra continua na tela até você acertar' },
   // Curso 5
   icones: { e: '📁📄🖼️', t: 'Ícones: programas, pastas e arquivos' },
   'barra-tarefas': { e: '🖥️▁⊞▁', t: 'Barra de tarefas na parte de baixo da tela' },

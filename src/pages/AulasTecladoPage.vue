@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, nextTick, reactive, ref, watch } from 'vue';
 import { RouterLink, useRoute, useRouter } from 'vue-router';
-import { PLANO } from '@/data/cursos';
+import { PLANO, planoDoCurso } from '@/data/cursos';
 import Icone from '@/components/Icone.vue';
 import TecladoAbnt2 from '@/components/TecladoAbnt2.vue';
 import { LICOES, passosDa, type Passo } from '@/data/licoesTeclado';
@@ -215,7 +215,9 @@ const OPCOES = [
 
 const lado = (c: 3 | 4) => LICOES.map((x, i) => ({ x, i })).filter((o) => o.x.c === c);
 const status = (i: number) => (progresso.foiConcluida(`teclado-${LICOES[i].id}`) ? 'Concluída' : i === s.li ? 'Você está aqui' : LICOES[i].pendente ? 'Em preparação' : '');
-const listasAbertas = reactive<Record<3 | 4, boolean>>({ 3: false, 4: false });
+// Lições da Trilha 4 que têm página própria (/aula/4.3 em diante), como o jogo das letras.
+const outrasDaTrilha4 = planoDoCurso(4).filter((p) => p.rota.startsWith('/aula/'));
+const listasAbertas =reactive<Record<3 | 4, boolean>>({ 3: false, 4: false });
 </script>
 
 <template>
@@ -252,6 +254,17 @@ const listasAbertas = reactive<Record<3 | 4, boolean>>({ 3: false, 4: false });
             >{{ o.x.id }}</span>
             <span class="flex min-w-0 flex-col"><span>{{ o.x.nome }}</span><span class="text-[0.75rem] font-normal">{{ status(o.i) }}</span></span>
           </button>
+          <template v-if="c === 4">
+            <RouterLink
+              v-for="o in outrasDaTrilha4"
+              :key="o.id"
+              :to="o.rota"
+              class="flex min-h-14 w-full items-center gap-2.5 rounded-xl border-2 border-borda-suave bg-superficie px-2.5 py-1.5 text-left text-[0.85rem] font-bold no-underline"
+            >
+              <span aria-hidden="true" class="grid size-11 shrink-0 place-items-center rounded-[10px] border-2 border-ink" :class="progresso.foiConcluida(o.prog) ? 'bg-pri text-pri-txt' : 'bg-fundo'">{{ o.id }}</span>
+              <span class="flex min-w-0 flex-col"><span>{{ o.titulo }}</span><span class="text-[0.75rem] font-normal">{{ progresso.foiConcluida(o.prog) ? 'Concluída' : '' }}</span></span>
+            </RouterLink>
+          </template>
         </div>
       </nav>
     </aside>

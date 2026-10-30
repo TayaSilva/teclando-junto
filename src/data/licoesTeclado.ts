@@ -182,13 +182,13 @@ export const LICOES: Licao[] = [
     objetivo: 'Praticar frases, maiúsculas e pontos finais.',
     intro: ['Agora vamos digitar algumas piadas leves. Talvez você até conheça alguma delas!'],
     teclas: [],
-    fim: 'Além de treinar o teclado, você ainda ganhou algumas piadas para contar!',
+    fim: 'Além de treinar o teclado, você ainda ganhou três piadas para contar!',
     a: [
-      { t: 'Desafio', k: 'digitar', i: 'Copie a piada com a pontuação.', itens: dig(['Por que o livro foi ao médico? Porque estava cheio de páginas em branco!', 'O relógio foi ao médico porque estava perdendo tempo.', 'Por que o computador foi ao médico? Porque pegou um vírus!', 'O café falou para o leite: você me completa!', 'O pão disse para a manteiga: você derrete meu coração!']) },
-      { t: 'Caça aos sinais', k: 'escolha', i: 'Lembra da primeira piada? Escolha o sinal certo.', itens: [
-        { pergunta: '“Por que o livro foi ao médico” termina com qual sinal?', r: '?' },
-        { pergunta: '“Porque estava cheio de páginas em branco” termina com qual sinal?', r: '!' },
-        { pergunta: '“O relógio foi ao médico porque estava perdendo tempo” termina com qual sinal?', r: '.' }] },
+      { t: 'Desafio', k: 'digitar', i: 'Copie a piada com a pontuação.', itens: dig(['Como deixar alguém curioso? Eu conto amanhã.', 'Por que o policial não usa sabão? Porque ele prefere deter gente.', 'Qual a fruta que anda de trem? O kiwiii.']) },
+      { t: 'Caça aos sinais', k: 'escolha', i: 'Lembra das piadas? Escolha o sinal certo.', itens: [
+        { pergunta: '“Como deixar alguém curioso” termina com qual sinal?', r: '?' },
+        { pergunta: '“Eu conto amanhã” termina com qual sinal?', r: '.' },
+        { pergunta: '“Qual a fruta que anda de trem” termina com qual sinal?', r: '?' }] },
     ],
   },
 ];

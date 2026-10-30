@@ -30,7 +30,7 @@ const partes: ItemPlano = { id: '1.2', curso: 1, titulo: 'As partes do computado
 
 const curso1 = doCurso(1);
 
-// Ordem completa: 46 lições.
+// Ordem completa: 47 lições.
 export const PLANO: ItemPlano[] = [
   curso1[0], partes, ...curso1.slice(1),
   ...doCurso(2),

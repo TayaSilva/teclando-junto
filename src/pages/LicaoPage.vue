@@ -11,6 +11,7 @@ import AtivCliqueDuplo from '@/components/atividades/AtivCliqueDuplo.vue';
 import AtivArrastar from '@/components/atividades/AtivArrastar.vue';
 import AtivRolagem from '@/components/atividades/AtivRolagem.vue';
 import AtivMensagem from '@/components/atividades/AtivMensagem.vue';
+import AtivJogoLetras from '@/components/atividades/AtivJogoLetras.vue';
 import SimComputador from '@/components/atividades/SimComputador.vue';
 import SimSistema from '@/components/atividades/SimSistema.vue';
 import SimNavegador from '@/components/atividades/SimNavegador.vue';
@@ -73,7 +74,7 @@ function refazer() { feitas.value[iAtiv.value] = false; tentativa.value++; }
 
 const COMPONENTES: Record<string, Component> = {
   escolha: AtivEscolha, digitar: AtivDigitar, ponteiro: AtivPonteiro, clique: AtivClique, cliqueduplo: AtivCliqueDuplo,
-  arrastar: AtivArrastar, rolagem: AtivRolagem, mensagem: AtivMensagem,
+  arrastar: AtivArrastar, rolagem: AtivRolagem, mensagem: AtivMensagem, jogoLetras: AtivJogoLetras,
 };
 function componenteDe(a: Atividade): Component {
   if (a.k !== 'sim') return COMPONENTES[a.k];
